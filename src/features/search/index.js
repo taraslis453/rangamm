@@ -1,0 +1,1 @@
+export {searchReducer, putTest} from './duck'
