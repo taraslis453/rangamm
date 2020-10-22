@@ -1,18 +1,17 @@
-const TEST = "search/TEST"
+const UPDATE_PHOTOS = "search/UPDATE_PHOTOS"
 
 let initialState = {
-    
+
 }
 
 export const searchReducer = (state = initialState, action) => {
     switch (action.rype) {
-        case TEST: {
-            return console.log('test')
+        case UPDATE_PHOTOS: {
+            return {}
         }
         default: return state
     }
 }
 
-
-export const putTest = () => ({type: TEST});
+export const updatePhotos = () => ({ type: UPDATE_PHOTOS });
 

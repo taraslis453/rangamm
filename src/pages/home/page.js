@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchForm } from 'features/search/molecules/index'
-import { P } from 'features/search/atoms/index';
+import { P } from 'shared/atoms/index';
 import { Center, Background } from 'shared/atoms/index'
 export const Home = () => {
     return (
@@ -10,6 +10,5 @@ export const Home = () => {
                 <SearchForm />
             </Center>
         </Background>
-
     );
 };

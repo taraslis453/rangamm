@@ -10,6 +10,7 @@ const Button = styled.button`
     color: #fff;
     border-radius: 0 5px 5px 0;
     cursor: pointer;
+    outline: none;
 `
 
 export const SearchButton = () => {

@@ -1,1 +1,1 @@
-export {searchReducer, putTest} from './duck'
+export { searchReducer } from './duck'
