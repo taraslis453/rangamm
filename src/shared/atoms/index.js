@@ -1,5 +1,5 @@
 export { Input } from './input'
-export { Form } from './form'
+export { FormWrapper } from './form-wrapper'
 export { Icon } from './icon'
 export { Center } from './center'
 export { Background } from './background'

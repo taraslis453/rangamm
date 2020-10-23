@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import PropTypes from 'prop-types';
-export const Form = styled.form`
+export const FormWrapper = styled.div`
     background-color: ${props => props.navForm ? '#eee' : 'white'};
-    border: 0;
+    border: ${props => props.error ? '2px solid red' : '2px solid transparent'};
     border-radius: ${props => props.navForm ? '25px' : null};
     position: relative;
     display: flex;
@@ -12,6 +12,6 @@ export const Form = styled.form`
     height: 40px
 `;
 
-Form.propTypes = {
-    navForm: PropTypes.string
+FormWrapper.propTypes = {
+    navForm: PropTypes.bool
 }

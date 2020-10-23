@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 export const Center = styled.div`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
 `
 
 Center.propTypes = {

@@ -1,2 +1,3 @@
-export {Home} from './home/page'
-export {Search} from './search/page'
+import { renderRoutes } from 'react-router-config'
+import { routes } from './routes'
+export const Pages = () => renderRoutes(routes)
