@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import { useForm } from "react-hook-form";
 import { FormWrapper, Input, P } from 'shared/atoms/index'
 import { SearchButton } from '../../atoms/index';
-import { connect } from "react-redux";
-import { fetchPhotos } from '../../duck/index'
-export const SearchForm = ({ navForm, fetchPhotos }) => {
+export const SearchForm = ({ navForm, onSubmit }) => {
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = ({ query }) => fetchPhotos(query);
     return (
         <>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -22,8 +19,6 @@ export const SearchForm = ({ navForm, fetchPhotos }) => {
 }
 
 SearchForm.propTypes = {
-    fetchPhotos: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired,
     navForm: PropTypes.bool
 }
-
-export default connect(null, { fetchPhotos })(SearchForm)

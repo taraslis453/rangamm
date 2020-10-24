@@ -3,6 +3,7 @@ const SET_RESULT_DATA = "search/SET_RESULT_DATA"
 
 let initialState = {
     query: "",
+    results: []
 }
 
 export const searchReducer = (state = initialState, action) => {
@@ -22,10 +23,10 @@ const setResultData = (data, query) => ({ type: SET_RESULT_DATA, data, query });
 
 export const fetchPhotos = (query, page = 1) => {
     if (page === 1) {
-        return (dispatch) => {
-            getPhotos(query).then((data) => {
-                dispatch(setResultData(data, query));
-            })
+        debugger;
+        return async (dispatch) => {
+            let response = await getPhotos(query);
+            return dispatch(setResultData(response, query));
         }
     }
 

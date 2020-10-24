@@ -1,6 +1,5 @@
-
 import { HomePage } from './home/page';
-import { SearchPage } from './search/page';
+import { default as SearchPage } from './search/page';
 
 export const routes = [
     {
@@ -9,7 +8,7 @@ export const routes = [
         component: HomePage
     },
     {
-        path: '/search',
+        path: '/search/:query',
         exact: true,
         component: SearchPage,
     }
