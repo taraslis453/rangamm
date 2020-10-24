@@ -4,14 +4,14 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
-import { PhotoGrid } from 'shared/atoms';
+import { GridWithPhotos } from 'shared/organisms';
 export const SearchPage = ({ results, fetchPhotos, match: { params: { query } } }) => {
     useEffect(() => {
         fetchPhotos(query)
     }, [fetchPhotos, query])
     return (
         <>
-            <PhotoGrid items={results} urlPath={'urls.small'} altPath={'user.username'} />
+            <GridWithPhotos items={results} urlPath={'urls.small'} altPath={'user.username'} />
         </>
     )
 }
