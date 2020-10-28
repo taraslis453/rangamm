@@ -1,2 +1,2 @@
 export { searchReducer } from './duck';
-export { getResultsSelector } from './selectors';
+export { getResultsSelector, getTotalSelector, getPageSelector } from './selectors';
