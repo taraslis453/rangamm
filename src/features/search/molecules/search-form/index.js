@@ -23,6 +23,7 @@ export const SearchForm = ({ navForm }) => {
 	const { register, handleSubmit, errors, getValues } = useForm();
 	const history = useHistory();
 	const onSubmit = ({ query }) => {
+		debugger;
 		history.push(`/search/${query}`);
 	};
 	const [inputLength, setLength] = useState(0);
@@ -30,11 +31,11 @@ export const SearchForm = ({ navForm }) => {
 		<>
 			<FormWrapper onSubmit={handleSubmit(onSubmit)} error={errors.query ? true : null} navForm={navForm ? navForm : null}>
 				<Button>
-					<SVG height="22px" width="22px" src={require('shared/assets/loupe.svg')}/>
+					<SVG height="22px" width="22px" src={require('shared/assets/loupe.svg')} />
 				</Button>
 				<Input onChange={() => setLength(getValues('query').length)} name="query" ref={register({ required: true })} placeholder={'type text'} />
 				<Button visibility={inputLength > 0 ? 'visible' : 'hidden'} type="reset" onClick={() => setLength(0)}>
-					<SVG height="22px" width="22px" src={require('shared/assets/cancel.svg')}/>
+					<SVG height="22px" width="22px" src={require('shared/assets/cancel.svg')} />
 				</Button>
 			</FormWrapper>
 			{errors.query && !navForm ? <P color="red">The field is required</P> : null}

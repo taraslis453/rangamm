@@ -12,7 +12,8 @@ const Top = styled.div`
 export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, page }) => {
     const { query } = useParams()
     useEffect(() => {
-        fetchPhotos()
+        debugger;
+        fetchPhotos(query)
     }, [fetchPhotos, query]
     );
     let loadMore = () => {
