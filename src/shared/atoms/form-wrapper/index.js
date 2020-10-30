@@ -1,15 +1,20 @@
 import styled from "styled-components";
+import { ifProp } from 'styled-tools'
 import PropTypes from 'prop-types';
-export const FormWrapper = styled.div`
-    background-color: ${props => props.navForm ? '#eee' : 'white'};
-    border: ${props => props.error ? '2px solid red' : '2px solid transparent'};
-    border-radius: ${props => props.navForm ? '25px' : null};
+export const FormWrapper = styled.form`
+    background-color: ${ifProp('navForm', '#eee', 'white')};
+    border: ${ifProp('error', '2px solid red', '2px solid transparent')};
+    border-radius: ${ifProp('navForm', '25px')};
     position: relative;
     display: flex;
     align-items: center;
-    padding: 5px;
     overflow: hidden;
-    height: 40px
+    max-width: 90%;
+    transition: all .2s ease;
+    &:hover {
+        border: ${ifProp('navForm', '2px solid #d1d1d1')};
+        background-color: ${ifProp('navForm', '#fff')};
+    }
 `;
 
 FormWrapper.propTypes = {

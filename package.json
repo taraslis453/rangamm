@@ -12,6 +12,7 @@
     "react-dom": "^16.14.0",
     "react-hook-form": "^6.9.5",
     "react-infinite-scroll-component": "^5.1.0",
+    "react-inlinesvg": "^2.1.1",
     "react-masonry-css": "^1.0.14",
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.1",
@@ -21,6 +22,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.2.0",
+    "styled-tools": "^1.7.2",
     "unsplash-js": "^6.3.0"
   },
   "scripts": {

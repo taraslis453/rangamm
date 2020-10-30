@@ -2,12 +2,17 @@ import { fetchPhotos, pageUpdater } from 'features/search/duck';
 import { getResultsSelector, getTotalSelector, getPageSelector } from 'features/search/index';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { compose } from 'redux';
+import { useParams } from 'react-router-dom';
 import { GridWithPhotos } from 'shared/organisms';
-export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, match: { params: { query } }, page }) => {
+import styled from 'styled-components';
+const Top = styled.div`
+    margin: 65px 0;
+`
+
+export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, page }) => {
+    const { query } = useParams()
     useEffect(() => {
-        fetchPhotos(query)
+        fetchPhotos()
     }, [fetchPhotos, query]
     );
     let loadMore = () => {
@@ -15,12 +20,19 @@ export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, match: { 
     }
     return (
         <>
+            <Top>
+                <div>SUbheader
+                    <div>Photos 7085</div>
+                    <div>ANy orientation</div>
+                </div>
+                <h1>{query}</h1>
+            </Top>
+
             <GridWithPhotos items={results} urlPath={'urls.small'} altPath={'user.username'} totalItems={total} loadMore={loadMore} />
         </>
     )
 }
 const mapStateToProps = (state) => {
-    debugger
     return {
         results: getResultsSelector(state),
         total: getTotalSelector(state),
@@ -28,7 +40,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default compose(
-    connect(mapStateToProps, { fetchPhotos, pageUpdater }),
-    withRouter
-)(SearchPage)
+export default connect(mapStateToProps, { fetchPhotos, pageUpdater })(SearchPage)

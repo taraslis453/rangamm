@@ -39,7 +39,6 @@ const setNewResultData = (data) => ({ type: UPDATE_PHOTOS, data })
 const pageUpdate = (page) => ({ type: UPDATE_PAGE, page })
 
 export const fetchPhotos = (query, page = 1) => {
-    debugger;
     return async (dispatch) => {
         let response = await getPhotos(query, page);
         page === 1 ? dispatch(setResultData(response, query)) : dispatch(setNewResultData(response))
