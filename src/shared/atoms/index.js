@@ -1,6 +1,9 @@
-export { Input } from './input'
-export { FormWrapper } from './form-wrapper'
-export { Center } from './center'
-export { Background } from './background'
-export { P } from './paragraph'
-export { Preloader } from './preloader'
+export { Center } from './center';
+export { Background } from './background';
+export { Preloader } from './preloader';
+export { Flex } from './flex';
+export { Box } from './box';
+export { Container } from './container';
+export { Fixed } from './fixed';
+export { Button } from './button';
+export { Typography } from './typography';

@@ -2,6 +2,18 @@ import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
 
 export const GlobalStyles = createGlobalStyle`
+html, body {
+  font-size: 62.5%;
+}
+
+.app {
+  font-size: 2rem;
+}
+
+*:focus {
+  outline: none;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

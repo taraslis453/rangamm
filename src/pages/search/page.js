@@ -3,16 +3,11 @@ import { getResultsSelector, getTotalSelector, getPageSelector } from 'features/
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { GridWithPhotos } from 'shared/organisms';
-import styled from 'styled-components';
-const Top = styled.div`
-    margin: 65px 0;
-`
-
+import { Container, Typography } from 'shared/atoms/index';
+import { GridWithPhotos } from 'shared/organisms/index';
 export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, page }) => {
     const { query } = useParams()
     useEffect(() => {
-        debugger;
         fetchPhotos(query)
     }, [fetchPhotos, query]
     );
@@ -21,14 +16,9 @@ export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, page }) =
     }
     return (
         <>
-            <Top>
-                <div>SUbheader
-                    <div>Photos 7085</div>
-                    <div>ANy orientation</div>
-                </div>
-                <h1>{query}</h1>
-            </Top>
-
+            <Container pt={[6]}>
+                <Typography variant='h1' as='h1'>{query}</Typography>
+            </Container>
             <GridWithPhotos items={results} urlPath={'urls.small'} altPath={'user.username'} totalItems={total} loadMore={loadMore} />
         </>
     )

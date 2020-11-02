@@ -7,7 +7,8 @@ export default {
 };
 
 const Template = (args) => <SearchForm {...args} />
-export const Default = Template.bind({});
-Default.args = {
-    navForm: true,
+export const Primary = Template.bind({});
+export const Secondary = Template.bind({})
+Secondary.args = {
+    variant: 'secondary'
 }

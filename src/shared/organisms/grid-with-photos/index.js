@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-css'
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Preloader } from 'shared/atoms/index'
 import classes from './index.module.css'
+import { Container, Typography, Box } from '../../atoms/index'
 export const GridWithPhotos = ({ items, totalItems, urlPath, altPath, loadMore }) => {
     function pathParser(obj, path) {
         return path.split('.').reduce((accumulator, currentValue) => {
@@ -26,11 +27,13 @@ export const GridWithPhotos = ({ items, totalItems, urlPath, altPath, loadMore }
         500: 1
     };
     return (
-        <InfiniteScroll dataLength={items.length} hasMore={totalItems === items.length ? false : true} next={loadMore} loader={<div style={{ textAlign: 'center' }}><Preloader /></div>} endMessage={<p style={{ textAlign: 'center' }}><b>Yay! You have seen it all</b></p>}>
-            <Masonry breakpointCols={breakpointColumnsObj} className={classes.myMasonryGrid} columnClassName={classes.myMasonryGrid_column}>
-                {photos}
-            </Masonry >
-        </InfiniteScroll>
+        <Container px={[0, 3]}>
+            <InfiniteScroll dataLength={items.length} hasMore={totalItems === items.length ? false : true} next={loadMore} loader={<Box textAlign='center'><Preloader /></Box>} endMessage={<Typography variant='p' as='p' textAlign='center' >Yay! You have seen it all</Typography>}>
+                <Masonry breakpointCols={breakpointColumnsObj} className={classes.myMasonryGrid} columnClassName={classes.myMasonryGrid_column}>
+                    {photos}
+                </Masonry >
+            </InfiniteScroll>
+        </Container>
     )
 }
 

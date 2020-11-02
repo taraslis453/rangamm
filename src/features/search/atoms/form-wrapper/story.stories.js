@@ -6,9 +6,5 @@ export default {
     component: FormWrapper,
 }
 
-const Template = (args) => <FormWrapper {...args} />;
+const Template = (args) => <FormWrapper />;
 export const Default = Template.bind({});
-
-Default.args = {
-    navForm: false
-}

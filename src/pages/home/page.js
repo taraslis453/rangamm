@@ -1,13 +1,16 @@
 import React from "react";
 import { SearchForm } from 'features/search/molecules/index'
-import { P } from 'shared/atoms/index';
 import { Center, Background } from 'shared/atoms/index'
+import bg from 'shared/assets/bg.jpeg'
+import { Typography, Container } from 'shared/atoms/index'
 export const HomePage = () => {
     return (
-        <Background url={'https://images.unsplash.com/photo-1582322384982-92cf41ed4dbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=889&q=80'}>
+        <Background url={bg}>
             <Center>
-                <P>The best free stock photos and videos shared by talented creators.</P>
-                <SearchForm />
+                <Container>
+                    <Typography variant='p' as='p' color='#fff'>The best free stock photos and videos shared by talented creators.</Typography>
+                    <SearchForm />
+                </Container>
             </Center>
         </Background>
     );
