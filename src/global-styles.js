@@ -3,11 +3,7 @@ import 'normalize.css';
 
 export const GlobalStyles = createGlobalStyle`
 html, body {
-  font-size: 62.5%;
-}
-
-.app {
-  font-size: 2rem;
+  font-size: 100%;
 }
 
 *:focus {
