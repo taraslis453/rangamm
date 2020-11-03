@@ -2,11 +2,13 @@ import { getPhotos } from '../api'
 const SET_RESULT_DATA = 'search/SET_RESULT_DATA'
 const UPDATE_PHOTOS = 'search/UPDATE_PHOTOS'
 const UPDATE_PAGE = 'search/UPDATE_PAGE'
+const CLEAR_DATA = 'search/CLEAR_DATA'
 let initialState = {
     query: "",
     results: [],
     page: 1,
-    total: 0
+    total: 0,
+    total_pages: 0
 }
 
 export const searchReducer = (state = initialState, action) => {
@@ -30,6 +32,16 @@ export const searchReducer = (state = initialState, action) => {
                 page: action.page
             }
         }
+        case CLEAR_DATA: {
+            return {
+                ...state,
+                query: "",
+                results: [],
+                page: 1,
+                total: 0,
+                total_pages: 0
+            }
+        }
         default: return state
     }
 }
@@ -37,11 +49,11 @@ export const searchReducer = (state = initialState, action) => {
 const setResultData = (data, query) => ({ type: SET_RESULT_DATA, data, query });
 const setNewResultData = (data) => ({ type: UPDATE_PHOTOS, data })
 const pageUpdate = (page) => ({ type: UPDATE_PAGE, page })
-
+export const clearData = () => ({ type: CLEAR_DATA })
 export const fetchPhotos = (query, page = 1) => {
     debugger;
     return async (dispatch) => {
-        let response = await getPhotos(query, page);
+        const response = await getPhotos(query, page)
         page === 1 ? dispatch(setResultData(response, query)) : dispatch(setNewResultData(response))
     }
 }

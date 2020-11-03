@@ -5,12 +5,14 @@ import { FormWrapper, Input } from '../../atoms/index';
 import { useHistory } from 'react-router-dom';
 import SVG from 'react-inlinesvg';
 import { Button } from 'shared/atoms/index'
-
-export const SearchForm = ({ variant }) => {
+import { fetchPhotos } from '../../duck/index'
+import { connect } from 'react-redux';
+export const SearchForm = ({ variant, fetchPhotos }) => {
 	const { register, handleSubmit, errors, getValues } = useForm();
 	const history = useHistory();
 	const onSubmit = ({ query }) => {
-		history.push(`/search/${query}`);
+		fetchPhotos(query)
+		history.push(`/search/${query}`)
 	};
 	const [inputLength, setLength] = useState(0);
 	return (
@@ -30,3 +32,5 @@ export const SearchForm = ({ variant }) => {
 		</>
 	);
 };
+
+export default connect(null, { fetchPhotos })(SearchForm)

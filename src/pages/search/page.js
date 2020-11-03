@@ -1,16 +1,23 @@
-import { fetchPhotos, pageUpdater } from 'features/search/duck';
+import { fetchPhotos, pageUpdater, clearData } from 'features/search/duck';
 import { getResultsSelector, getTotalSelector, getPageSelector } from 'features/search/index';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { Container, Typography } from 'shared/atoms/index';
 import { GridWithPhotos } from 'shared/organisms/index';
-export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, page }) => {
+export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, clearData, page }) => {
     const { query } = useParams()
     useEffect(() => {
-        fetchPhotos(query)
-    }, [fetchPhotos, query]
+        if (!results.length) {
+            fetchPhotos(query)
+        }
+    }, [results, fetchPhotos, clearData, query]
     );
+    useEffect(() => {
+        return () => {
+            clearData()
+        }
+    }, [clearData])
     let loadMore = () => {
         fetchPhotos(query, pageUpdater(page))
     }
@@ -31,4 +38,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchPhotos, pageUpdater })(SearchPage)
+export default connect(mapStateToProps, { fetchPhotos, pageUpdater, clearData })(SearchPage)

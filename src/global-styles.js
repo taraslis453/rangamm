@@ -2,10 +2,6 @@ import { createGlobalStyle } from 'styled-components';
 import 'normalize.css';
 
 export const GlobalStyles = createGlobalStyle`
-html, body {
-  font-size: 100%;
-}
-
 *:focus {
   outline: none;
 }
