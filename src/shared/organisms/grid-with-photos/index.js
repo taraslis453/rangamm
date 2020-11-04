@@ -6,6 +6,7 @@ import { Preloader } from 'shared/atoms/index'
 import classes from './index.module.css'
 import { Container, Typography, Box } from '../../atoms/index'
 export const GridWithPhotos = ({ items, totalItems, urlPath, altPath, loadMore }) => {
+    debugger;
     function pathParser(obj, path) {
         return path.split('.').reduce((accumulator, currentValue) => {
             if (accumulator === null) {

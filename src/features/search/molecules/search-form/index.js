@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 export const SearchForm = ({ variant, fetchPhotos }) => {
 	const { register, handleSubmit, errors, getValues } = useForm();
 	const history = useHistory();
-	const onSubmit = ({ query }) => {
-		fetchPhotos(query)
+	const onSubmit = async ({ query }) => {
+		await fetchPhotos(query)
 		history.push(`/search/${query}`)
 	};
 	const [inputLength, setLength] = useState(0);
