@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { layout, color, compose, } from 'styled-system'
 
 const composedHelpers = compose(
-    layout,
-    color,
+	layout,
+	color,
 )
 export const Button = styled.button`
     ${composedHelpers}

@@ -5,16 +5,16 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { Preloader } from 'shared/atoms/index'
 import classes from './index.module.css'
 import { Container, Typography, Box } from '../../atoms/index'
+export const pathParser = (obj, path) => {
+    return path.split('.').reduce((accumulator, currentValue) => {
+        if (accumulator === null) {
+            return obj[currentValue];
+        }
+        return accumulator[currentValue];
+    }, null)
+}
 export const GridWithPhotos = ({ items, totalItems, urlPath, altPath, loadMore }) => {
-    debugger;
-    function pathParser(obj, path) {
-        return path.split('.').reduce((accumulator, currentValue) => {
-            if (accumulator === null) {
-                return obj[currentValue];
-            }
-            return accumulator[currentValue];
-        }, null)
-    }
+
     let photos = items.map((item, index) => {
         return (
             <div key={index}>
