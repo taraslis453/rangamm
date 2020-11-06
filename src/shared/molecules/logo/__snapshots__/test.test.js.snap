@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Logo/> renders properly 1`] = `
+<div
+  class="sc-dlfnbm ebCEzK"
+>
+  <a
+    href="/"
+  >
+    <img
+      alt=""
+      height="40px"
+      src="react-icon.png"
+    />
+  </a>
+  <div
+    class="sc-hKgILt fDDeoO"
+    display="none,block"
+  >
+    <span
+      class="sc-iBPRYJ iPxlDD"
+    >
+      Free photos for everyone
+    </span>
+  </div>
+</div>
+`;

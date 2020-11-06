@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormWrapper/> renders properly 1`] = `
+<form
+  class="sc-bdfBwQ cpIffI"
+/>
+`;

@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormWrapper/> renders properly 1`] = `
+<input
+  class="sc-bdfBwQ kLHscP"
+  font-size="3"
+  placeholder="type text"
+/>
+`;

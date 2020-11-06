@@ -6,36 +6,36 @@ import { useParams } from 'react-router-dom';
 import { Container, Typography } from 'shared/atoms/index';
 import { GridWithPhotos } from 'shared/organisms/index';
 export const SearchPage = ({ results, total, fetchPhotos, pageUpdater, clearData, page }) => {
-    const { query } = useParams()
-    useEffect(() => {
-        if (!results.length) {
-            fetchPhotos(query)
-        }
-    }, [results, fetchPhotos, clearData, query]
-    );
-    useEffect(() => {
-        return () => {
-            clearData()
-        }
-    }, [clearData])
-    let loadMore = () => {
-        fetchPhotos(query, pageUpdater(page))
+  const { query } = useParams()
+  useEffect(() => {
+    if (!results.length) {
+      fetchPhotos(query)
     }
-    return (
-        <>
-            <Container pt={[6]}>
-                <Typography variant='h1' as='h1'>{query}</Typography>
-            </Container>
-            <GridWithPhotos items={results} urlPath={'urls.small'} altPath={'user.username'} totalItems={total} loadMore={loadMore} />
-        </>
-    )
+  }, [results, fetchPhotos, clearData, query]
+  );
+  useEffect(() => {
+    return () => {
+      clearData()
+    }
+  }, [clearData])
+  let loadMore = () => {
+    fetchPhotos(query, pageUpdater(page))
+  }
+  return (
+    <>
+      <Container pt={[6]}>
+        <Typography variant='h1' as='h1'>{query}</Typography>
+      </Container>
+      <GridWithPhotos items={results} urlPath={'urls.small'} altPath={'user.username'} totalItems={total} loadMore={loadMore} />
+    </>
+  )
 }
 const mapStateToProps = (state) => {
-    return {
-        results: getResultsSelector(state),
-        total: getTotalSelector(state),
-        page: getPageSelector(state),
-    }
+  return {
+    results: getResultsSelector(state),
+    total: getTotalSelector(state),
+    page: getPageSelector(state),
+  }
 }
 
 export default connect(mapStateToProps, { fetchPhotos, pageUpdater, clearData })(SearchPage)

@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header/> renders properly 1`] = `
+<div
+  class="sc-hKgILt sc-jSgupP dGrMvG fUPQst"
+  width="1"
+>
+  <div
+    class="sc-hKgILt sc-eCssSg hgiXYC"
+  >
+    <div
+      class="sc-dlfnbm dheqbO"
+    >
+      <div
+        class="sc-dlfnbm ebCEzK"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt=""
+            height="40px"
+            src="react-icon.png"
+          />
+        </a>
+        <div
+          class="sc-hKgILt fDDeoO"
+          display="none,block"
+        >
+          <span
+            class="sc-iBPRYJ iPxlDD"
+          >
+            Free photos for everyone
+          </span>
+        </div>
+      </div>
+      <form
+        class="sc-fubCfw hwwHaJ"
+      >
+        <div
+          class="sc-dlfnbm ebCEzK"
+        >
+          <button
+            class="sc-gKsewC hOzbjI"
+          >
+            <div
+              height="22px"
+              width="22px"
+            >
+              <div>
+                <div
+                  data-src="loupe.svg"
+                  src=""
+                />
+              </div>
+            </div>
+          </button>
+          <input
+            class="sc-pFZIQ jAvGLq"
+            data-testid="searchInput"
+            font-size="3"
+            name="query"
+            placeholder="type text"
+          />
+          <button
+            class="sc-gKsewC fdiCUk"
+            data-testid="resetButton"
+            type="reset"
+            visibility="hidden"
+          >
+            <div
+              height="22px"
+              width="22px"
+            >
+              <div>
+                <div
+                  data-src="cancel.svg"
+                  src=""
+                />
+              </div>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

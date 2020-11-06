@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { typography, space, compose } from 'styled-system'
 
 const composedHelpers = compose(
-    typography,
-    space,
+  typography,
+  space,
 )
 
 export const Input = styled.input`
@@ -14,10 +14,10 @@ export const Input = styled.input`
     width: 100%;
 `
 Input.defaultProps = {
-    fontSize: 3,
-    p: 1
+  fontSize: 3,
+  p: 1
 }
 
 Input.propTypes = {
-    placeholder: PropTypes.string.isRequired
+  placeholder: PropTypes.string.isRequired
 }
