@@ -17,6 +17,6 @@
   margin-bottom: 30px;
 }
 
-.myMasonryGrid_column > div .img {
-  max-width: 100%;
+.myMasonryGrid_column > div img {
+  width: 100%;
 }

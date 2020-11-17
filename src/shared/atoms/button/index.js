@@ -1,17 +1,13 @@
-import { prop } from 'styled-tools';
-import styled from 'styled-components';
-import { layout, color, compose, } from 'styled-system'
+import {prop} from 'styled-tools'
+import styled from 'styled-components'
+import {layout, color, space, compose, typography} from 'styled-system'
 
-const composedHelpers = compose(
-	layout,
-	color,
-)
+const composedHelpers = compose(layout, color, space, typography)
 export const Button = styled.button`
-    ${composedHelpers}
-	border: none;
-	background: transparent;
-	text-align: center;
-	cursor: pointer;
-	outline: none;
-	visibility: ${prop('visibility', 'visible')};
-`;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  visibility: ${prop('visibility', 'visible')};
+  ${composedHelpers}
+`

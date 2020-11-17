@@ -1,10 +1,11 @@
-import styled from "styled-components";
-import { ifProp } from 'styled-tools';
-import { variant } from 'styled-system'
+import styled from 'styled-components'
+import {ifProp} from 'styled-tools'
+import {variant} from 'styled-system'
 
 export const FormWrapper = styled('form')(
   {
     transition: 'all .2s ease',
+    display: 'flex',
     border: ifProp('error', '2px solid red', '2px solid transparent'),
   },
   variant({
@@ -19,12 +20,12 @@ export const FormWrapper = styled('form')(
         '&:hover': {
           border: '2px solid #d1d1d1',
           backgroundColor: '#fff',
-        }
-      }
-    }
-  })
+        },
+      },
+    },
+  }),
 )
 
 FormWrapper.defaultProps = {
-  variant: 'primary'
+  variant: 'primary',
 }

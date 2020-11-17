@@ -1,22 +1,19 @@
-import styled from 'styled-components';
-import { typography, color, variant, compose } from 'styled-system';
+import styled from 'styled-components'
+import {typography, color, space, variant, compose} from 'styled-system'
 
 export const Typography = styled('h1')(
-  compose(
-    typography,
-    color,
-  ),
+  compose(typography, color, space),
   variant({
     variants: {
       p: {
-        fontSize: 3
+        fontSize: 3,
       },
       span: {
-        fontSize: 1
+        fontSize: 1,
       },
       h1: {
-        fontSize: 6
-      }
-    }
-  })
+        fontSize: 6,
+      },
+    },
+  }),
 )

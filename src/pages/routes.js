@@ -1,15 +1,15 @@
-import { HomePage } from './home/page';
-import { default as SearchPage } from './search/page';
+import {HomePage} from './home/page'
+import {default as SearchPage} from './search/page'
 
 export const routes = [
-    {
-        path: '/',
-        exact: true,
-        component: HomePage
-    },
-    {
-        path: '/search/:query',
-        exact: true,
-        component: SearchPage,
-    }
+  {
+    path: '/',
+    exact: true,
+    component: HomePage,
+  },
+  {
+    path: '/search/:paramsQuery',
+    exact: true,
+    component: SearchPage,
+  },
 ]
