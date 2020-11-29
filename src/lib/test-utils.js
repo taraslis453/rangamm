@@ -7,11 +7,13 @@ import {store} from '../store'
 import {Provider} from 'react-redux'
 const AllTheProviders = ({children}) => {
   return (
-    <BrowserRouter>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>{children}</ThemeProvider>
-      </Provider>
-    </BrowserRouter>
+    <div id='root'>
+      <BrowserRouter>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </Provider>
+      </BrowserRouter>
+    </div>
   )
 }
 

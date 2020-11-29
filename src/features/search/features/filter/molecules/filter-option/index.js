@@ -15,14 +15,15 @@ const Radio = styled.input`
   }
 `
 
-export const FilterOption = ({title, radioName, radioIdName}) => {
+export const FilterOption = ({title, radioName, radioIdName, checked, optionsHandler}) => {
+  debugger
   return (
     <Box position='relative' as='li' ml={[1]} px={[1]} py={[2]}>
-      <Radio type='radio' name={radioName} id={radioIdName} />
+      <Radio defaultChecked={checked} type='radio' name={radioName} id={radioIdName} />
       <Icon display='none' position='absolute' top={[2]} right='100%' size='10px'>
         <ReactSVG src={tick} />
       </Icon>
-      <Title ml={[1]} textAlign='left'>
+      <Title ml={[1]} textAlign='left' onClick={optionsHandler}>
         <label htmlFor={radioIdName}>{title}</label>
       </Title>
     </Box>

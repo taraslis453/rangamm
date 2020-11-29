@@ -17,9 +17,9 @@ describe('<FilterItem/>', () => {
   })
   test('popover display on click, close on item click or document', () => {
     userEvent.click(currentFilter)
-    let filters = screen.getByTestId('filters')
-    expect(filters).toBeDefined()
-    userEvent.click(screen.getAllByText(/Landscape/)[1])
-    expect(screen.getAllByText(/Any orientation/)).toHaveLength(2)
+    expect(screen.getByTestId('filters')).toBeDefined()
+    screen.debug()
+    userEvent.click(currentFilter)
+    expect(screen.getByTestId('filters')).toBeUndefined()
   })
 })

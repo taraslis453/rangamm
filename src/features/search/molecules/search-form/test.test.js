@@ -1,7 +1,7 @@
 import React from 'react'
 import {render, screen} from 'lib/test-utils'
 import userEvent from '@testing-library/user-event'
-import SearchForm from './index'
+import {SearchForm} from './index'
 describe('<SearchForm/>', () => {
   let input
   beforeEach(() => {

@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header/> renders properly 1`] = `
+<div
+  id="root"
+>
+  <div
+    class="sc-hKgILt bNkVhN"
+    width="1"
+  >
+    <div
+      class="sc-hKgILt dsStyI"
+    >
+      <div
+        class="sc-dlfnbm dheqbO"
+      >
+        <div
+          class="sc-dlfnbm ebCEzK"
+        >
+          <a
+            href="/"
+          >
+            <img
+              alt=""
+              height="40px"
+              src="react-icon.png"
+            />
+          </a>
+          <div
+            class="sc-hKgILt gsUhK"
+            display="none,block"
+          >
+            <span
+              class="sc-gKsewC eifmwT"
+            >
+              Free photos for everyone
+            </span>
+          </div>
+        </div>
+        <form
+          class="sc-fubCfw gVcLdE"
+        >
+          <div
+            class="sc-hKgILt cxUlvu"
+            width="100%"
+          >
+            <div
+              class="sc-dlfnbm juTEVK"
+            >
+              <div
+                class="sc-hKgILt cxUlvu"
+                width="100%"
+              >
+                <div
+                  class="sc-dlfnbm diYbDG"
+                >
+                  <button
+                    class="sc-jSgupP dOFnrt"
+                    data-testid="submitButton"
+                  >
+                    <div
+                      class="sc-iBPRYJ kdHuYL"
+                    >
+                      <div>
+                        <div>
+                          <div
+                            data-src="loupe.svg"
+                            src=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </button>
+                  <input
+                    class="sc-pFZIQ jAvGLq"
+                    data-testid="searchInput"
+                    font-size="3"
+                    name="query"
+                    placeholder="type text"
+                  />
+                </div>
+              </div>
+              <div>
+                <button
+                  class="sc-jSgupP bzipIs"
+                  data-testid="resetButton"
+                  type="reset"
+                  visibility="hidden"
+                >
+                  <div
+                    class="sc-iBPRYJ kdHuYL"
+                  >
+                    <div>
+                      <div>
+                        <div
+                          data-src="cancel.svg"
+                          src=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,6 +1,14 @@
-import {fetchPhotos, pageUpdater, clearData} from 'features/search/duck'
-import {getResultsSelector, getTotalSelector, getPageSelector, getQuerySelector} from 'features/search/index'
-import React, {useEffect, useState} from 'react'
+import {
+  fetchPhotos,
+  pageUpdater,
+  clearData,
+  getResultsSelector,
+  getTotalSelector,
+  getPageSelector,
+  getQuerySelector,
+} from 'features/search/index'
+import {getOptionsSelector, initializeOptions, changeOptionsStatus} from 'features/search/features/filter/index'
+import React, {useEffect, useState, useRef} from 'react'
 import {connect} from 'react-redux'
 import {useParams} from 'react-router-dom'
 import {ReactSVG} from 'react-svg'
@@ -11,7 +19,18 @@ import {ModalWindow} from 'shared/organisms/index'
 import settingsIcon from 'shared/assets/settings.svg'
 import {FilterOption} from 'features/search/features/filter/molecules'
 
-export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData, page, query}) => {
+export const SearchPage = ({
+  results,
+  total,
+  fetchPhotos,
+  pageUpdater,
+  clearData,
+  page,
+  query,
+  options,
+  initializeOptions,
+  changeOptionsStatus,
+}) => {
   const {paramsQuery} = useParams()
   if (paramsQuery !== query) {
     ;(function () {
@@ -21,6 +40,7 @@ export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData,
   let loadMore = () => {
     fetchPhotos(query, pageUpdater(page))
   }
+
   let filterData = [
     {
       filterTitle: 'Color',
@@ -33,13 +53,44 @@ export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData,
       options: ['Any orientation', 'Landscape', 'Square'],
     },
   ]
-
+  if (options.length === 0) {
+    let filterItemsLength = filterData.length
+    let array = []
+    for (let i = 0; i < filterItemsLength; i++) {
+      let optionsLength = filterData[i].options.length
+      let optionsStatus = []
+      for (let b = 0; b < optionsLength; b++) {
+        if (b === 0) {
+          optionsStatus.push(true)
+        } else {
+          optionsStatus.push(false)
+        }
+      }
+      array.push(optionsStatus)
+    }
+    initializeOptions(array)
+  }
+  const optionsHandler = (itemIndex, optionIndex) => {
+    let currentOptionsStatus = [...options]
+    let optionsItemLength = currentOptionsStatus[itemIndex].length
+    let newArrayStatus = []
+    for (let i = 0; i < optionsItemLength; i++) {
+      if (i === optionIndex) {
+        newArrayStatus.push(true)
+      } else {
+        newArrayStatus.push(false)
+      }
+    }
+    currentOptionsStatus.splice(itemIndex, 1, newArrayStatus)
+    changeOptionsStatus(currentOptionsStatus)
+  }
   useEffect(() => {
     return () => {
       clearData()
     }
   }, [clearData])
 
+  const filterOptionsElements = useRef(null)
   const [modalIsOpen, setIsOpen] = useState(false)
   function openModal() {
     setIsOpen(true)
@@ -47,6 +98,7 @@ export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData,
   function closeModal() {
     setIsOpen(false)
   }
+
   return (
     <div>
       <Box position={[null, null, 'fixed']} bg='#fff' top='75px' width={1} borderBottom='1px solid silver'>
@@ -67,23 +119,31 @@ export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData,
                         Filters
                       </Typography>
                     </Box>
-                    <Box overflow='auto' height='78%'>
-                      {filterData.map((item, index) => {
-                        return (
-                          <FilterItem key={index} filterTitle={item.filterTitle} defaultTitle={item.defaultTitle}>
-                            {item.options.map((optionItem, optionIndex) => {
-                              return (
-                                <FilterOption
-                                  radioName={`mradio${index}`}
-                                  radioIdName={`mradio${optionIndex}${index}`}
-                                  key={optionIndex}
-                                  title={optionItem}
-                                />
-                              )
-                            })}
-                          </FilterItem>
-                        )
-                      })}
+                    <Box overflow='auto' height='78%' ref={filterOptionsElements}>
+                      {options.length > 0 &&
+                        filterData.map((item, itemIndex) => {
+                          return (
+                            <FilterItem
+                              mobile={true}
+                              key={itemIndex}
+                              filterTitle={item.filterTitle}
+                              defaultTitle={item.defaultTitle}>
+                              {item.options.map((optionItem, optionIndex) => {
+                                return (
+                                  <FilterOption
+                                    onClick={() => console.log('hi')}
+                                    radioName={`radio${itemIndex}`}
+                                    radioIdName={`radio${optionIndex}${itemIndex}`}
+                                    key={optionIndex}
+                                    title={optionItem}
+                                    optionsHandler={() => optionsHandler(itemIndex, optionIndex)}
+                                    checked={options[itemIndex][optionIndex]}
+                                  />
+                                )
+                              })}
+                            </FilterItem>
+                          )
+                        })}
                     </Box>
                     <Box borderTop='1px solid #d1d1d1' p={[3]} position='fixed' left='0' right='0' bottom='0'>
                       <Flex justifyContent='space-between'>
@@ -106,22 +166,24 @@ export const SearchPage = ({results, total, fetchPhotos, pageUpdater, clearData,
               </Box>
               <Box whiteSpace='nowrap' display={['none', 'none', 'block']}>
                 <Flex>
-                  {filterData.map((item, index) => {
-                    return (
-                      <FilterItem key={index} filterTitle={item.filterTitle} defaultTitle={item.defaultTitle}>
-                        {item.options.map((optionItem, optionIndex) => {
-                          return (
-                            <FilterOption
-                              radioName={`dradio${index}`}
-                              radioIdName={`dradio${optionIndex}${index}`}
-                              key={optionIndex}
-                              title={optionItem}
-                            />
-                          )
-                        })}
-                      </FilterItem>
-                    )
-                  })}
+                  {options.length > 0 &&
+                    filterData.map((item, itemIndex) => {
+                      return (
+                        <FilterItem key={itemIndex} filterTitle={item.filterTitle} defaultTitle={item.defaultTitle}>
+                          {item.options.map((optionItem, optionIndex) => {
+                            return (
+                              <FilterOption
+                                radioName={`radio${itemIndex}`}
+                                radioIdName={`radio${optionIndex}${itemIndex}`}
+                                key={optionIndex}
+                                title={optionItem}
+                                checked={options[itemIndex][optionIndex]}
+                              />
+                            )
+                          })}
+                        </FilterItem>
+                      )
+                    })}
                 </Flex>
               </Box>
             </Box>
@@ -150,7 +212,10 @@ const mapStateToProps = state => {
     total: getTotalSelector(state),
     page: getPageSelector(state),
     query: getQuerySelector(state),
+    options: getOptionsSelector(state),
   }
 }
 
-export default connect(mapStateToProps, {fetchPhotos, pageUpdater, clearData})(SearchPage)
+export default connect(mapStateToProps, {fetchPhotos, pageUpdater, clearData, initializeOptions, changeOptionsStatus})(
+  SearchPage,
+)

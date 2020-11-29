@@ -2,26 +2,30 @@
 
 exports[`<Logo/> renders properly 1`] = `
 <div
-  class="sc-dlfnbm ebCEzK"
+  id="root"
 >
-  <a
-    href="/"
-  >
-    <img
-      alt=""
-      height="40px"
-      src="react-icon.png"
-    />
-  </a>
   <div
-    class="sc-hKgILt gsUhK"
-    display="none,block"
+    class="sc-dlfnbm ebCEzK"
   >
-    <span
-      class="sc-gKsewC eifmwT"
+    <a
+      href="/"
     >
-      Free photos for everyone
-    </span>
+      <img
+        alt=""
+        height="40px"
+        src="react-icon.png"
+      />
+    </a>
+    <div
+      class="sc-hKgILt gsUhK"
+      display="none,block"
+    >
+      <span
+        class="sc-gKsewC eifmwT"
+      >
+        Free photos for everyone
+      </span>
+    </div>
   </div>
 </div>
 `;
