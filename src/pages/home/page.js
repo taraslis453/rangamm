@@ -3,7 +3,7 @@ import {SearchForm} from 'features/search/molecules/index'
 import {Center, Background} from 'shared/atoms/index'
 import bg from 'shared/assets/bg.jpeg'
 import {Typography, Container} from 'shared/atoms/index'
-export const HomePage = () => {
+export const Home = () => {
   return (
     <Background url={bg}>
       <Center>

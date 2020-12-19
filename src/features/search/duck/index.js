@@ -33,34 +33,32 @@ export const searchReducer = (state = initialState, action) => {
       }
     }
     case CLEAR_DATA: {
-      return {
-        ...state,
-        query: '',
-        results: [],
-        page: 1,
-        total: 0,
-        total_pages: 0,
-      }
+      return initialState
     }
     default:
       return state
   }
 }
-export const setResultData = (data, query) => ({type: SET_RESULT_DATA, data, query})
-const setNewResultData = data => ({type: UPDATE_PHOTOS, data})
-const pageUpdate = page => ({type: UPDATE_PAGE, page})
-export const clearData = () => ({type: CLEAR_DATA})
-export const fetchPhotos = (query, page = 1) => {
-  return async dispatch => {
-    let response = await getPhotos(query, page)
-    page === 1 ? dispatch(setResultData(response, query)) : dispatch(setNewResultData(response))
-  }
+
+export const actions = {
+  setResultData: (data, query) => ({type: SET_RESULT_DATA, data, query}),
+  setNewResultData: data => ({type: UPDATE_PHOTOS, data}),
+  pageUpdate: page => ({type: UPDATE_PAGE, page}),
+  clearData: () => ({type: CLEAR_DATA}),
 }
 
-export const pageUpdater = page => {
-  let newPage = page + 1
-  return dispatch => {
-    dispatch(pageUpdate(newPage))
-    return newPage
-  }
+export const thunks = {
+  fetchPhotos: (query, page = 1) => {
+    return async dispatch => {
+      let response = await getPhotos(query, page)
+      page === 1 ? dispatch(actions.setResultData(response, query)) : dispatch(actions.setNewResultData(response))
+    }
+  },
+  pageUpdater: page => {
+    let newPage = page + 1
+    return dispatch => {
+      dispatch(actions.pageUpdate(newPage))
+      return newPage
+    }
+  },
 }

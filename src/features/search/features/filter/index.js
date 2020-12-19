@@ -1,2 +1,1 @@
-export {filterReducer, initializeOptions, changeOptionsStatus} from './duck'
-export {getOptionsSelector} from './selectors'
+export {filtersReducer, actions} from './duck'

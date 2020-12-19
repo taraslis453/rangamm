@@ -1,1 +1,1 @@
-export {FilterItem} from './filter-item'
+export {Filter} from './filter'

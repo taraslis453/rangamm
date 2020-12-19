@@ -1,28 +1,33 @@
-const INITIALIZE_OPTIONS_STATUS = 'filter/INITIALIZE_OPTIONS_STATUS'
-const CHANGE_OPTIONS_STATUS = 'filter/CHANGE_OPTIONS_STATUS'
+const CHANGE_FILTER = 'filter/CHANGE_FILTER'
+const RESET_FILTERS = 'filter/RESET_FILTERS'
 
 let initialState = {
-  options: [],
+  color: 'any',
+  orientation: 'any',
 }
 
-export const filterReducer = (state = initialState, action) => {
+export const filtersReducer = (state = initialState, action) => {
   switch (action.type) {
-    case INITIALIZE_OPTIONS_STATUS: {
+    case CHANGE_FILTER: {
       return {
         ...state,
-        options: action.optionsStatus,
+        [action.payload.name]: action.payload.value,
       }
     }
-    case CHANGE_OPTIONS_STATUS: {
-      return {
-        ...state,
-        options: action.newOptionsStatus,
-      }
+    case RESET_FILTERS: {
+      return initialState
     }
     default:
       return state
   }
 }
 
-export const initializeOptions = optionsStatus => ({type: INITIALIZE_OPTIONS_STATUS, optionsStatus})
-export const changeOptionsStatus = newOptionsStatus => ({type: CHANGE_OPTIONS_STATUS, newOptionsStatus})
+export const actions = {
+  changeFilter: (name, value) => ({
+    type: CHANGE_FILTER,
+    payload: {name, value},
+  }),
+  resetFilters: () => ({
+    type: RESET_FILTERS,
+  }),
+}

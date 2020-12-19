@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import {ifProp} from 'styled-tools'
 import {Box} from 'shared/atoms/index'
 import {Title} from '../../atoms/index'
 import {ReactSVG} from 'react-svg'
@@ -10,26 +11,27 @@ import tick from 'shared/assets/tick.svg'
 
 const Radio = styled.input`
   display: none;
-  &:checked + div {
-    display: block;
+  & + div {
+    display: ${ifProp('isChecked', 'block')};
   }
 `
 
-export const FilterOption = ({title, radioName, radioIdName, checked, optionsHandler}) => {
-  debugger
+export const FilterOption = ({label, name, id, checked, value, onChange}) => {
   return (
-    <Box position='relative' as='li' ml={[1]} px={[1]} py={[2]}>
-      <Radio defaultChecked={checked} type='radio' name={radioName} id={radioIdName} />
+    <Box as='label' display='flex' htmlFor={id} position='relative' ml={[1]} px={[1]} py={[2]}>
+      <Radio onChange={onChange} isChecked={checked} type='radio' value={value} name={name} id={id} />
       <Icon display='none' position='absolute' top={[2]} right='100%' size='10px'>
         <ReactSVG src={tick} />
       </Icon>
-      <Title ml={[1]} textAlign='left' onClick={optionsHandler}>
-        <label htmlFor={radioIdName}>{title}</label>
+      <Title ml={[1]} textAlign='left'>
+        {label}
       </Title>
     </Box>
   )
 }
 
 FilterOption.propTypes = {
-  title: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 }

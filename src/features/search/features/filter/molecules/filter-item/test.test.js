@@ -2,15 +2,15 @@ import React from 'react'
 import {render, screen} from 'lib/test-utils'
 import {FilterItem} from './index'
 import userEvent from '@testing-library/user-event'
-import {FilterOption} from '../../molecules'
+import {FilterOption} from '../index'
 describe('<FilterItem/>', () => {
   let currentFilter
   beforeEach(() => {
     render(
-      <FilterItem filterTitle='Orientation' defaultTitle='Any orientation'>
-        <FilterOption title='Any orientation' />
-        <FilterOption title='Landscape' />
-        <FilterOption title='Square' />
+      <FilterItem title='Orientation' defaultTitle='Any orientation'>
+        <FilterOption label='Any orientation' />
+        <FilterOption label='Landscape' />
+        <FilterOption label='Square' />
       </FilterItem>,
     )
     currentFilter = screen.getByTestId('currentFilter')
