@@ -14,7 +14,6 @@ export const Filter = () => {
     prevFilters.current = filters
   }, [])
   const prevFilters = prevFiltersRef
-  console.log(JSON.stringify(prevFilters.current) === JSON.stringify(filters))
   let filterData = [
     {
       title: 'Color',

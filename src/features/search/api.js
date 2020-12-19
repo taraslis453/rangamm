@@ -1,6 +1,7 @@
-import { unsplash } from 'api-configure'
-import { toJson } from 'unsplash-js';
-
-export const getPhotos = (query, page) => {
-    return (unsplash.search.photos(query, page, 4).then(toJson))
+import {Unsplash} from 'api-configure'
+export const getPhotos = async (query, page) => {
+  const response = await Unsplash('/search/photos', {
+    params: {query, page},
+  })
+  return response.data
 }
