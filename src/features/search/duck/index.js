@@ -48,9 +48,9 @@ export const actions = {
 }
 
 export const thunks = {
-  fetchPhotos: (query, page = 1) => {
+  fetchPhotos: (query, page, orderBy, color, orientation) => {
     return async dispatch => {
-      let response = await getPhotos(query, page)
+      let response = await getPhotos(query, page, orderBy, color, orientation)
       page === 1 ? dispatch(actions.setResultData(response, query)) : dispatch(actions.setNewResultData(response))
     }
   },

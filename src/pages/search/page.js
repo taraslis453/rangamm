@@ -11,15 +11,19 @@ export const Search = () => {
   const total = useSelector(state => state.search.total)
   const query = useSelector(state => state.search.query)
   const page = useSelector(state => state.search.page)
+  const orderBy = useSelector(state => state.filters.order_by)
+  const color = useSelector(state => state.filters.color)
+  const orientation = useSelector(state => state.filters.orientation)
   const dispatch = useDispatch()
   const {paramsQuery} = useParams()
+  const initialFetch = () => {
+    dispatch(searchThunks.fetchPhotos(paramsQuery, 1, orderBy, color, orientation))
+  }
   if (paramsQuery !== query) {
-    ;(function () {
-      dispatch(searchThunks.fetchPhotos(paramsQuery))
-    })()
+    initialFetch()
   }
   let loadMore = () => {
-    dispatch(searchThunks.fetchPhotos(query, dispatch(searchThunks.pageUpdater(page))))
+    dispatch(searchThunks.fetchPhotos(query, dispatch(searchThunks.pageUpdater(page)), orderBy, color, orientation))
   }
   useEffect(() => {
     return () => {
@@ -32,20 +36,17 @@ export const Search = () => {
         <Box p={[3]}>
           <Flex justifyContent='space-between'>
             <Typography as={'span'} variant='span'>
-              Photos 'count'
+              Photos {total}
             </Typography>
             <Box>
-              {/* <Box position='relative'>
-                <Filter mobile />
-              </Box> */}
               <Box whiteSpace='nowrap'>
-                <Filter />
+                <Filter initialFetch={initialFetch} />
               </Box>
             </Box>
           </Flex>
         </Box>
       </Box>
-      <Container pt={[2, 2, 6]}>
+      <Container pt='6'>
         <Typography variant='h1' as='h1'>
           {query}
         </Typography>

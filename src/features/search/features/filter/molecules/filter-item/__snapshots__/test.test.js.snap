@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FilterItem/> renders properly 1`] = `
+<div
+  id="root"
+>
+  <div
+    class="sc-hKgILt bSNoIA"
+    data-testid="filterItem"
+  >
+    <div
+      class="sc-hKgILt dsStyI"
+    >
+      <div>
+        Orientation
+      </div>
+      <div>
+        Child
+      </div>
+    </div>
+  </div>
+</div>
+`;
