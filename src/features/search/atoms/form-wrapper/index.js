@@ -17,10 +17,6 @@ export const FormWrapper = styled('form')(
       secondary: {
         backgroundColor: '#eee',
         borderRadius: '25px',
-        '&:hover': {
-          border: '2px solid #d1d1d1',
-          backgroundColor: '#fff',
-        },
       },
     },
   }),

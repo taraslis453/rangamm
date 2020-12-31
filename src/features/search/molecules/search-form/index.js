@@ -13,7 +13,7 @@ export const SearchForm = ({variant}) => {
     history.push(`/search/${query}`)
   }
   const [inputLength, setLength] = useState(0)
-  const inputOnChange = () => setLength(getValues('query').length)
+  const onInputChange = () => setLength(getValues('query').length)
   const onResetButton = () => setLength(0)
   return (
     <>
@@ -29,14 +29,14 @@ export const SearchForm = ({variant}) => {
                 </Button>
                 <Input
                   data-testid='searchInput'
-                  onChange={inputOnChange}
+                  onChange={onInputChange}
                   name='query'
                   ref={register({required: true})}
                   placeholder={'type text'}
                 />
               </Flex>
             </Box>
-            <div>
+            <Box>
               <Button
                 size='40px'
                 visibility={inputLength > 0 ? 'visible' : 'hidden'}
@@ -47,7 +47,7 @@ export const SearchForm = ({variant}) => {
                   <ReactSVG src={cancel} />
                 </Icon>
               </Button>
-            </div>
+            </Box>
           </Flex>
         </Box>
       </FormWrapper>
