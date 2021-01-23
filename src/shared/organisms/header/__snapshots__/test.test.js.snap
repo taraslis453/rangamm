@@ -5,17 +5,17 @@ exports[`<Header/> renders properly 1`] = `
   id="root"
 >
   <div
-    class="sc-hKgILt hMINLE"
+    class="sc-jSgupP jbGKTi"
     width="1"
   >
     <div
-      class="sc-hKgILt dsStyI"
+      class="sc-jSgupP bqovge"
     >
       <div
-        class="sc-dlfnbm dheqbO"
+        class="sc-eCssSg iEgnZv"
       >
         <div
-          class="sc-dlfnbm ebCEzK"
+          class="sc-eCssSg llmfDX"
         >
           <a
             href="/"
@@ -27,39 +27,39 @@ exports[`<Header/> renders properly 1`] = `
             />
           </a>
           <div
-            class="sc-hKgILt gsUhK"
+            class="sc-jSgupP kUKtbQ"
             display="none,block"
           >
             <span
-              class="sc-gKsewC eifmwT"
+              class="sc-fubCfw fbcOuy"
             >
               Free photos for everyone
             </span>
           </div>
         </div>
         <form
-          class="sc-fubCfw gVcLdE"
+          class="sc-bdfBwQ blRnZR"
         >
           <div
-            class="sc-hKgILt cxUlvu"
+            class="sc-jSgupP dpClbs"
             width="100%"
           >
             <div
-              class="sc-dlfnbm juTEVK"
+              class="sc-eCssSg gEYnDz"
             >
               <div
-                class="sc-hKgILt cxUlvu"
+                class="sc-jSgupP dpClbs"
                 width="100%"
               >
                 <div
-                  class="sc-dlfnbm diYbDG"
+                  class="sc-eCssSg kQNaTf"
                 >
                   <button
-                    class="sc-jSgupP dOFnrt"
+                    class="sc-iBPRYJ fOrFns"
                     data-testid="submitButton"
                   >
                     <div
-                      class="sc-iBPRYJ kdHuYL"
+                      class="sc-pFZIQ eBcLVN"
                     >
                       <div>
                         <div>
@@ -72,7 +72,7 @@ exports[`<Header/> renders properly 1`] = `
                     </div>
                   </button>
                   <input
-                    class="sc-pFZIQ jAvGLq"
+                    class="sc-gsTCUz MakKC"
                     data-testid="searchInput"
                     font-size="3"
                     name="query"
@@ -80,15 +80,17 @@ exports[`<Header/> renders properly 1`] = `
                   />
                 </div>
               </div>
-              <div>
+              <div
+                class="sc-jSgupP gzBSgn"
+              >
                 <button
-                  class="sc-jSgupP bzipIs"
+                  class="sc-iBPRYJ fcYCwJ"
                   data-testid="resetButton"
                   type="reset"
                   visibility="hidden"
                 >
                   <div
-                    class="sc-iBPRYJ kdHuYL"
+                    class="sc-pFZIQ eBcLVN"
                   >
                     <div>
                       <div>

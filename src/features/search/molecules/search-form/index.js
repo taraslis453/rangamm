@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import {useForm} from 'react-hook-form'
-import {Flex, Typography, Button, Icon, Box} from 'shared/atoms/index'
 import {useHistory} from 'react-router-dom'
-import {FormWrapper, Input} from '../../atoms'
 import {ReactSVG} from 'react-svg'
+import {FormWrapper, Input} from '../../atoms'
+import {Flex, Typography, Button, Icon, Box} from 'shared/atoms/'
 import cancel from 'shared/assets/cancel.svg'
-import loupe from 'shared/assets/loupe.svg'
+import loupe from './assets/loupe.svg'
+
 export const SearchForm = ({variant}) => {
   const {register, handleSubmit, errors, getValues} = useForm()
   const history = useHistory()

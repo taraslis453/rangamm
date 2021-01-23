@@ -1,12 +1,13 @@
 import React, {useState, useRef, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import {ReactSVG} from 'react-svg'
+import {useDispatch, useSelector} from 'react-redux'
 import {Box, Button, Flex, Icon, Typography} from 'shared/atoms/'
 import {ModalWindow} from 'shared/organisms'
 import settingsIcon from 'shared/assets/settings.svg'
 import {FilterItem, FilterOption} from '../../molecules/'
-import {useDispatch, useSelector} from 'react-redux'
 import {actions} from '../../index'
+
 export const Filter = ({initialFetch}) => {
   const dispatch = useDispatch()
   const filters = useSelector(state => state.filters)

@@ -1,7 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import icon from 'shared/assets/react-icon.png'
-import {Box, Flex, Typography} from '../../atoms/index'
+import icon from './assets/react-icon.png'
+import {Box, Flex, Typography} from '../../atoms/'
+
 export const Logo = () => {
   return (
     <Flex alignItems='center'>

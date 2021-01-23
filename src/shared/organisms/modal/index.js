@@ -1,10 +1,11 @@
 import React from 'react'
-import {Box} from 'shared/atoms'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import AriaModal from 'react-aria-modal'
 import {ReactSVG} from 'react-svg'
 import cancel from 'shared/assets/cancel.svg'
+import {Box} from 'shared/atoms'
+
 const ModalBody = styled.div`
   position: absolute;
   top: 50%;

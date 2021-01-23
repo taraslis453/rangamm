@@ -2,9 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Masonry from 'react-masonry-css'
 import InfiniteScroll from 'react-infinite-scroll-component'
-import {Preloader} from 'shared/atoms/index'
 import classes from './index.module.css'
-import {Container, Typography, Box} from '../../atoms/index'
+import {Container, Typography, Box, Preloader} from '../../atoms/'
 
 export const pathParser = (obj, path) => {
   return path.split('.').reduce((accumulator, currentValue) => {

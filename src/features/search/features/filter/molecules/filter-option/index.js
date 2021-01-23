@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {Box, Icon} from 'shared/atoms/index'
-import {Title} from '../../atoms/index'
 import {ReactSVG} from 'react-svg'
-import tick from 'shared/assets/tick.svg'
-//TODO: icon in props
+import {Box, Icon} from 'shared/atoms/'
+import {Title} from '../../atoms/'
+import tick from './assets/tick.svg'
 
 const Radio = styled.input`
   display: none;
